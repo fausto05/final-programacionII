@@ -8,6 +8,7 @@ public class EnemigoPerseguidor : MonoBehaviour
     public int Health = 3;    // Vida del enemigo
     public GameObject Jonh;   // Referencia al personaje principal
     public GameObject BalaPrefab;
+    public GameObject MedallitaPrefab; // Prefab de la medallita
 
     private void Update()
     {
@@ -39,7 +40,20 @@ public class EnemigoPerseguidor : MonoBehaviour
         Health--;
         if (Health <= 0)
         {
-            Destroy(gameObject); // Destruir enemigo si su vida llega a 0
+            Destroy(gameObject);
+            Muerte();
         }
+    }
+
+    private void Muerte()
+    {
+        // Instanciar la medallita en la posición del enemigo
+        if (MedallitaPrefab != null)
+        {
+            Instantiate(MedallitaPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Destruir al enemigo
+        Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class Enemigo : MonoBehaviour
     public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab;
     public GameObject Jonh;
+    public GameObject MedallitaPrefab; // Prefab de la medallita
 
     private float LastShoot;
     
@@ -41,6 +42,23 @@ public class Enemigo : MonoBehaviour
     public void Hit()
     {
         Health = Health - 1;
-        if (Health == 0) Destroy(gameObject);
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+            Muerte();
+        }
+
+    }
+
+    private void Muerte()
+    {
+        // Instanciar la medallita en la posición del enemigo
+        if (MedallitaPrefab != null)
+        {
+            Instantiate(MedallitaPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Destruir al enemigo
+        Destroy(gameObject);
     }
 }

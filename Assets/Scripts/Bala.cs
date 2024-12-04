@@ -35,6 +35,7 @@ public class Bala : MonoBehaviour
         MovimientoJonh jonh = collision.GetComponent<MovimientoJonh>();
         Enemigo enemigo = collision.GetComponent<Enemigo>();
         EnemigoPerseguidor enemigoperseguidor = collision.GetComponent<EnemigoPerseguidor>();
+        EnemigoJefe enemigojefe = collision.GetComponent<EnemigoJefe>();
 
         if (jonh != null)
         {
@@ -51,5 +52,11 @@ public class Bala : MonoBehaviour
             enemigoperseguidor.Hit();
         }
         DestroyBala();
+
+        if (enemigojefe != null)
+        {
+            enemigojefe.Hit(); // Llama a la función para reducir la vida
+            DestroyBala(); // Destruye la bala
+        }
     }
 }

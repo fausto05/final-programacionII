@@ -2580,6 +2580,7 @@ MonoBehaviour:
   Health: 3
   Jonh: {fileID: 90850122}
   BalaPrefab: {fileID: 6573576951222868516, guid: dce71fb42d81f5544bc331af1f6cf866, type: 3}
+  MedallitaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
 --- !u!95 &761531301
 Animator:
   serializedVersion: 5
@@ -3975,6 +3976,8 @@ GameObject:
   - component: {fileID: 1821141748}
   - component: {fileID: 1821141747}
   - component: {fileID: 1821141750}
+  - component: {fileID: 1821141751}
+  - component: {fileID: 1821141752}
   m_Layer: 0
   m_Name: EnemigoJefe
   m_TagString: Untagged
@@ -4070,7 +4073,7 @@ Transform:
   m_GameObject: {fileID: 1821141744}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.131, y: -3.304, z: 0}
+  m_LocalPosition: {x: -3.222, y: -3.304, z: 0}
   m_LocalScale: {x: 0.9092325, y: 1.0995599, z: 0.83869797}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4108,9 +4111,50 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014908301, y: -0.00017582727}
-  m_Size: {x: 0.15345846, y: 0.2188249}
+  m_Offset: {x: -0.009831088, y: 0.020116284}
+  m_Size: {x: 0.16361287, y: 0.17824067}
   m_Direction: 0
+--- !u!114 &1821141751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821141744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97a88ab5fa2f1747abb052a45ea1800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0.5
+  RangoDisparo: 1
+  BalaPrefab: {fileID: 6573576951222868516, guid: dce71fb42d81f5544bc331af1f6cf866, type: 3}
+  Jonh: {fileID: 90850122}
+  CadenciaDisparo: 1
+  DistanciaPatrullaje: 2
+  Health: 3
+  MedallitaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
+--- !u!95 &1821141752
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821141744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 055a4066221d8384899094e8f82ec2fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1881498409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,6 +4631,7 @@ MonoBehaviour:
   Health: 3
   BalaPrefab: {fileID: 6573576951222868516, guid: dce71fb42d81f5544bc331af1f6cf866, type: 3}
   Jonh: {fileID: 90850122}
+  MedallitaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
 --- !u!1 &2061848557
 GameObject:
   m_ObjectHideFlags: 0
