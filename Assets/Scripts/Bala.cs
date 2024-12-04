@@ -28,4 +28,21 @@ public class Bala : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MovimientoJonh jonh = collision.GetComponent<MovimientoJonh>();
+        Enemigo enemigo = collision.GetComponent<Enemigo>();
+
+        if (jonh != null)
+        {
+            jonh.Hit();
+        }
+        if (enemigo != null)
+        {
+            enemigo.Hit();
+        }
+        DestroyBala();
+    }
 }

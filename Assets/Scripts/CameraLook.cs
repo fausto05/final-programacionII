@@ -7,8 +7,11 @@ public class CameraLook : MonoBehaviour
     public GameObject Jonh;
     void Update()
     {
-        Vector3 position = transform.position;
-        position.x = Jonh.transform.position.x;
-        transform.position = position;
+        if (Jonh != null)
+        {
+            Vector3 position = transform.position;
+            position.x = Jonh.transform.position.x;
+            transform.position = position;
+        }
     }
 }

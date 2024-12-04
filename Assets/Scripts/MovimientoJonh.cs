@@ -13,7 +13,7 @@ public class MovimientoJonh : MonoBehaviour
     private Animator animator;
     private float Horizontal;
     private bool Grounded;
-
+    private int Health = 5;
 
     void Start()
     {
@@ -70,4 +70,11 @@ public class MovimientoJonh : MonoBehaviour
         // Aplicar movimiento horizontal
         rigidbody2.velocity = new Vector2(Horizontal * Speed, rigidbody2.velocity.y);
     }
+
+    public void Hit()
+    {
+        Health = Health - 1;
+        if (Health == 0) Destroy(gameObject);
+    }
+    
 }
