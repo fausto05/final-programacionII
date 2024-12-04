@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
+    public float Speed = 2.0f; // Velocidad de movimiento
+    public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab;
     public GameObject Jonh;
 
     private float LastShoot;
-    private int Health = 3; 
-
+    
     private void Update()
     {
         if (Jonh == null) return;

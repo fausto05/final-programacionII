@@ -34,6 +34,7 @@ public class Bala : MonoBehaviour
     {
         MovimientoJonh jonh = collision.GetComponent<MovimientoJonh>();
         Enemigo enemigo = collision.GetComponent<Enemigo>();
+        EnemigoPerseguidor enemigoperseguidor = collision.GetComponent<EnemigoPerseguidor>();
 
         if (jonh != null)
         {
@@ -42,6 +43,12 @@ public class Bala : MonoBehaviour
         if (enemigo != null)
         {
             enemigo.Hit();
+        }
+        DestroyBala();
+        
+        if (enemigoperseguidor != null)
+        {
+            enemigoperseguidor.Hit();
         }
         DestroyBala();
     }
