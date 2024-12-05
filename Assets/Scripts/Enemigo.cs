@@ -7,11 +7,17 @@ public class Enemigo : MonoBehaviour
     public float Speed = 2.0f; // Velocidad de movimiento
     public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab;
-    public GameObject Jonh;
     public GameObject MedallitaPrefab; // Prefab de la medallita
 
     private float LastShoot;
-    
+    private GameObject Jonh;
+
+    private void Start()
+    {
+        // Buscar al objeto con el tag "Player"
+        Jonh = GameObject.FindWithTag("Player");
+    }
+
     private void Update()
     {
         if (Jonh == null) return;
@@ -56,6 +62,12 @@ public class Enemigo : MonoBehaviour
         if (MedallitaPrefab != null)
         {
             Instantiate(MedallitaPrefab, transform.position, Quaternion.identity);
+        }
+
+        GameObject spawnManager = GameObject.Find("SpawnManager");
+        if (spawnManager != null)
+        {
+            spawnManager.GetComponent<SpawnEnemigos>().EnemigoMuerto();
         }
 
         // Destruir al enemigo

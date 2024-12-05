@@ -8,13 +8,12 @@ public class MovimientoJonh : MonoBehaviour
     public float Speed;     // Velocidad de movimiento
     public GameObject BalaPrefab;
     
-
     private Rigidbody2D rigidbody2;
     private Animator animator;
     private float Horizontal;
     private bool Grounded;
-    private int Health = 5;
-
+    private float Vida = 5;
+    
     void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
@@ -73,8 +72,9 @@ public class MovimientoJonh : MonoBehaviour
 
     public void Hit()
     {
-        Health = Health - 1;
-        if (Health == 0) Destroy(gameObject);
+        Vida = Vida - 1;
+        if (Vida == 0) Destroy(gameObject);
+        
     }
-    
+
 }
