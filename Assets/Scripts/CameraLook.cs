@@ -12,6 +12,9 @@ public class CameraLook : MonoBehaviour
             Vector3 position = transform.position;
             position.x = Jonh.transform.position.x;
             transform.position = position;
+
+            position.y = Jonh.transform.position.y;
+            transform.position = position;
         }
     }
 }

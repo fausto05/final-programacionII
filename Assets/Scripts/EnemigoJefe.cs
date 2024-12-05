@@ -7,7 +7,6 @@ public class EnemigoJefe : MonoBehaviour
     public float Speed = 2.0f; // Velocidad de movimiento
     public float RangoDisparo = 3.0f; // Rango para detenerse y disparar
     public GameObject BalaPrefab; // Prefab de la bala
-    public GameObject Jonh; // Referencia al jugador
     public float CadenciaDisparo = 1.0f; // Tiempo entre disparos
     public float DistanciaPatrullaje = 5.0f; // Distancia total que recorrerá
     public int Health = 3;
@@ -17,9 +16,11 @@ public class EnemigoJefe : MonoBehaviour
     private Vector3 destinoActual; // Destino actual del enemigo
     private bool disparando = false; // Si está disparando
     private float ultimoDisparo; // Última vez que disparó
+    private GameObject Jonh;
 
     private void Start()
     {
+        Jonh = GameObject.FindWithTag("Player");
         // Guardar la posición inicial y calcular el primer destino
         puntoInicial = transform.position;
         destinoActual = puntoInicial + Vector3.right * DistanciaPatrullaje;

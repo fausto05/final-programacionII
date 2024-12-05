@@ -6,10 +6,16 @@ public class EnemigoPerseguidor : MonoBehaviour
 {
     public float Speed = 2.0f; // Velocidad de movimiento
     public int Health = 3;    // Vida del enemigo
-    public GameObject Jonh;   // Referencia al personaje principal
     public GameObject BalaPrefab;
     public GameObject MedallitaPrefab; // Prefab de la medallita
 
+    private GameObject Jonh;
+
+    private void Start()
+    {
+        // Buscar al objeto con el tag "Player"
+        Jonh = GameObject.FindWithTag("Player");
+    }
     private void Update()
     {
         // Si Jonh no existe (destruido o no asignado), no hacer nada
@@ -23,6 +29,7 @@ public class EnemigoPerseguidor : MonoBehaviour
         if (direction.x >= 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         else transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

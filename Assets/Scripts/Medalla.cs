@@ -11,7 +11,7 @@ public class Medalla : MonoBehaviour
         MovimientoJonh jugador = collision.GetComponent<MovimientoJonh>();
         if (jugador != null)
         {
-            ContadorMedallas contador = FindObjectOfType<ContadorMedallas>();
+            GameManager contador = FindObjectOfType<GameManager>();
             if (contador != null)
             {
                 contador.AgregarMedalla();
