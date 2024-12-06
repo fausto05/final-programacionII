@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,30 +9,31 @@ public class MovimientoJonh : MonoBehaviour
 {
     public float JumpForce; // Fuerza del salto
     public float Speed;     // Velocidad de movimiento
-    public GameObject BalaPrefab;
-    public LayerMask sueloLayer; // Capa que define qué es considerado "suelo"
-    public Transform detectorSuelo;
-    public float radioDeteccion;
+    public GameObject BalaPrefab; // Prefab de bala
+    public LayerMask sueloLayer; // Capa que define al suelo
+    public Transform detectorSuelo; // Para detectar si esta tocando suelo
+    public float radioDeteccion; // Radio para detectar si esta tocando el suelo
+    public TMP_Text textoVida; // Referencia al TextMeshPro para mostrar la vida
 
-    private Rigidbody2D rigidbody2;
-    private Animator animator;
-    private float Horizontal;
-    private bool Grounded;
-    private float Vida = 5;
-    
-
-    
+    private Rigidbody2D rigidbody2; // Rigidbody del jugador
+    private Animator animator; // Animacion del jugador
+    private float Horizontal; // Movimiento horizontal del jugador
+    private bool Grounded; // Suelo
+    public int MaxVida = 5; // Vida máxima del jugador
+    private int Vida; // Vida actual del jugador
 
     void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
+        Vida = MaxVida; 
+
+        ActualizarTextoVida();
     }
 
     void Update()
     {
-        // Obtener el input horizontal del jugador
         Horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
@@ -41,7 +43,6 @@ public class MovimientoJonh : MonoBehaviour
 
         Grounded = Physics2D.OverlapCircle(detectorSuelo.position, radioDeteccion, sueloLayer);
 
-        // Salto solo si estamos en el suelo
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
             Jump();
@@ -55,7 +56,6 @@ public class MovimientoJonh : MonoBehaviour
 
     private void Jump()
     {
-        // Agregar fuerza hacia arriba
         rigidbody2.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
     }
 
@@ -68,33 +68,37 @@ public class MovimientoJonh : MonoBehaviour
         GameObject Bala = Instantiate(BalaPrefab, transform.position + direccion * 0.1f, Quaternion.identity);
         Bala.GetComponent<Bala>().SetDirection(direccion);
     }
+    
     private void FixedUpdate()
     {
-        // Aplicar movimiento horizontal
         rigidbody2.velocity = new Vector2(Horizontal * Speed, rigidbody2.velocity.y);
     }
 
     public void Hit()
     {
         Vida = Vida - 1;
+
+        ActualizarTextoVida();
+
         if (Vida == 0)
             Morir();
     }
 
     private void Morir()
     {
-        Debug.Log("El jugador ha muerto");
-
-        // Llama al GameManager para cargar la escena de derrota
         GameManager gameManager = FindObjectOfType<GameManager>();
         if (gameManager != null)
         {
             gameManager.PerderJuego();
         }
-        Destroy(gameObject); // Destruye al jugador
-        
+        Destroy(gameObject); 
     }
 
-    
-
+    private void ActualizarTextoVida()
+    {
+        if (textoVida != null)
+        {
+            textoVida.text = Vida.ToString(); 
+        }
+    }
 }

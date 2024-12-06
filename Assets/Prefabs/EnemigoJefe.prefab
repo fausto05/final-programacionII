@@ -165,10 +165,9 @@ MonoBehaviour:
   Speed: 0.5
   RangoDisparo: 1
   BalaPrefab: {fileID: 6573576951222868516, guid: dce71fb42d81f5544bc331af1f6cf866, type: 3}
-  CadenciaDisparo: 1.5
   DistanciaPatrullaje: 2
   Health: 3
-  MedallitaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
+  MedallaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
 --- !u!95 &7209806245248893728
 Animator:
   serializedVersion: 5

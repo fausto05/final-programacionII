@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float Speed;
+    public float Speed; // Velocidad de la bala
 
-    private Rigidbody2D Rigidbody2D;
-    private Vector2 Direccion;
+    private Rigidbody2D Rigidbody2D; // Rigidbody de la bala
+    private Vector2 Direccion; // Direccion de la bala
+    
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
-
+    
     private void FixedUpdate()
     {
         Rigidbody2D.velocity = Direccion * Speed;
@@ -28,8 +28,7 @@ public class Bala : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MovimientoJonh jonh = collision.GetComponent<MovimientoJonh>();
@@ -55,8 +54,8 @@ public class Bala : MonoBehaviour
 
         if (enemigojefe != null)
         {
-            enemigojefe.Hit(); // Llama a la función para reducir la vida
-            DestroyBala(); // Destruye la bala
+            enemigojefe.Hit(); 
+            DestroyBala(); 
         }
     }
 }

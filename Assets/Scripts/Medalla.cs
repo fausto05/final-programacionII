@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Medalla : MonoBehaviour
 {
-    public int Puntos = 1; // Puntos que otorga la medallita al recolectarla
+    public int Puntos = 1; // Puntos que otorga la medalla al recolectarla
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,8 +16,7 @@ public class Medalla : MonoBehaviour
             {
                 contador.AgregarMedalla();
             }
-
-            Destroy(gameObject); // Destruye la medallita
+            Destroy(gameObject); 
         }
     }
 }

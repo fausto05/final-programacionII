@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpawnEnemigos : MonoBehaviour
 {
-    public GameObject EnemigoPrefab; // Prefab del enemigo a spawnear
-    public GameObject EnemigoPerseguidorPrefab;
+    public GameObject EnemigoPrefab; 
+    public GameObject EnemigoPerseguidorPrefab;     // Prefabs de los enemigos a spawnear
     public GameObject EnemigoJefePrefab;
+    
     public Transform[] PuntosSpawn; // Puntos donde pueden aparecer los enemigos
     public float IntervaloSpawn = 5f; // Tiempo entre spawns
     public int MaxEnemigos = 10; // Número máximo de enemigos activos
@@ -15,7 +16,6 @@ public class SpawnEnemigos : MonoBehaviour
 
     private void Start()
     {
-        // Inicia la corrutina para spawnear enemigos
         StartCoroutine(SpawnEnemigosPeriodicamente());
     }
 
@@ -36,43 +36,33 @@ public class SpawnEnemigos : MonoBehaviour
 
     private void SpawnEnemigo()
     {
-        // Selecciona un punto de spawn aleatorio
-        int index = Random.Range(0, PuntosSpawn.Length);
+        int index = Random.Range(0, PuntosSpawn.Length);  // Selecciona un punto de spawn aleatorio
 
-        // Instancia el enemigo en el punto seleccionado
         Instantiate(EnemigoPrefab, PuntosSpawn[index].position, Quaternion.identity);
         
-        // Incrementa el contador de enemigos activos
         enemigosActivos++;
     }
 
     private void SpawnEnemigoJefe()
     {
-        // Selecciona un punto de spawn aleatorio
         int index = Random.Range(0, PuntosSpawn.Length);
 
-        // Instancia el enemigo en el punto seleccionado
         Instantiate(EnemigoJefePrefab, PuntosSpawn[index].position, Quaternion.identity);
 
-        // Incrementa el contador de enemigos activos
         enemigosActivos++;
     }
 
     private void SpawnEnemigoPerseguidor()
     {
-        // Selecciona un punto de spawn aleatorio
         int index = Random.Range(0, PuntosSpawn.Length);
 
-        // Instancia el enemigo en el punto seleccionado
         Instantiate(EnemigoPerseguidorPrefab, PuntosSpawn[index].position, Quaternion.identity);
 
-        // Incrementa el contador de enemigos activos
         enemigosActivos++;
     }
 
     public void EnemigoMuerto()
     {
-        // Llama este método desde los enemigos cuando mueran
         enemigosActivos--;
     }
 }
