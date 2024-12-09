@@ -8,9 +8,9 @@ public class EnemigoPerseguidor : MonoBehaviour
     public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab; // Prefab de bala
     public GameObject MedallitaPrefab; // Prefab de la medalla
-
+    
     private GameObject Jonh; // Jugador a seguir
-
+    
     private void Start()
     {
         Jonh = GameObject.FindWithTag("Player");
@@ -25,7 +25,8 @@ public class EnemigoPerseguidor : MonoBehaviour
         if (direction.x >= 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         else transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
     }
-    
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         MovimientoJonh jonh = collision.gameObject.GetComponent<MovimientoJonh>();

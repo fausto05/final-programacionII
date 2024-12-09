@@ -27,7 +27,7 @@ public class Enemigo : MonoBehaviour
 
         float distance = Mathf.Abs(Jonh.transform.position.x - transform.position.x);
 
-        if (distance < 1.0f && Time.time > LastShoot + 2f)
+        if (distance < 3.0f && Time.time > LastShoot + 2f)
         {
             Disparo();
             LastShoot = Time.time;

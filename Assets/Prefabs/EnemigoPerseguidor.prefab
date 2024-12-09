@@ -163,10 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.5
-  Health: 3
+  Health: 4
   BalaPrefab: {fileID: 6573576951222868516, guid: dce71fb42d81f5544bc331af1f6cf866, type: 3}
   MedallitaPrefab: {fileID: 6264262357660033090, guid: 7c6af8e996715264a9bc4116b4dc6220, type: 3}
-  Jonh: {fileID: 0}
 --- !u!95 &1057756273459191136
 Animator:
   serializedVersion: 5

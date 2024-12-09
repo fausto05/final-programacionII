@@ -15,6 +15,9 @@ public class MovimientoJonh : MonoBehaviour
     public float radioDeteccion; // Radio para detectar si esta tocando el suelo
     public TMP_Text textoVida; // Referencia al TextMeshPro para mostrar la vida
 
+    public AudioClip disparoSound; // Clip de sonido para el disparo
+    private AudioSource audioSource; // Referencia al AudioSource
+
     private Rigidbody2D rigidbody2; // Rigidbody del jugador
     private Animator animator; // Animacion del jugador
     private float Horizontal; // Movimiento horizontal del jugador
@@ -26,6 +29,7 @@ public class MovimientoJonh : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>(); // Obtiene el AudioSource del jugador
 
         Vida = MaxVida; 
 
@@ -67,6 +71,12 @@ public class MovimientoJonh : MonoBehaviour
         
         GameObject Bala = Instantiate(BalaPrefab, transform.position + direccion * 0.1f, Quaternion.identity);
         Bala.GetComponent<Bala>().SetDirection(direccion);
+
+        // Reproducir sonido de disparo
+        if (disparoSound != null)
+        {
+            audioSource.PlayOneShot(disparoSound);
+        }
     }
     
     private void FixedUpdate()
