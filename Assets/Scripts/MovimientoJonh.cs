@@ -29,7 +29,7 @@ public class MovimientoJonh : MonoBehaviour
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>(); // Obtiene el AudioSource del jugador
+        audioSource = GetComponent<AudioSource>(); 
 
         Vida = MaxVida; 
 
@@ -72,7 +72,7 @@ public class MovimientoJonh : MonoBehaviour
         GameObject Bala = Instantiate(BalaPrefab, transform.position + direccion * 0.1f, Quaternion.identity);
         Bala.GetComponent<Bala>().SetDirection(direccion);
 
-        // Reproducir sonido de disparo
+        
         if (disparoSound != null)
         {
             audioSource.PlayOneShot(disparoSound);
