@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    public float Speed = 2.0f; // Velocidad de movimiento
+    public float Speed = 2.0f; // Velocidad de movimiento de enemigo
     public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab; // Prefab de bala
     public GameObject MedallitaPrefab; // Prefab de la medallita
 
     private float LastShoot; // Ultima vez que disparo
-    private GameObject Jonh; // Jugador a seguir
+    private GameObject Jonh; // Jugador que sigue 
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class Enemigo : MonoBehaviour
         if (direction.x >= 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         else transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
 
-        float distance = Mathf.Abs(Jonh.transform.position.x - transform.position.x);
+        float distance = Mathf.Abs(Jonh.transform.position.x - transform.position.x); // Activa el comportamiento si el pj esta en cirto rango de distancia
 
         if (distance < 3.0f && Time.time > LastShoot + 2f)
         {

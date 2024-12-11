@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraLook : MonoBehaviour
 {
-    public GameObject Jonh; // Jugador a seguir
+    public GameObject Jonh; // el pj
     void Update()
     {
         if (Jonh != null)

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class EnemigoJefe : MonoBehaviour
 {
-    public float Speed = 2.0f; // Velocidad de movimiento
+    public float Speed = 2.0f; // Velocidad de movimiento de enemigoJ
     public float RangoDisparo = 3.0f; // Rango para detenerse y disparar
     public GameObject BalaPrefab; // Prefab de la bala
-    public float DistanciaPatrullaje = 5.0f; // Distancia total que recorrerá
-    public int Health = 3; // Vida del enemigo
-    public GameObject MedallaPrefab; // Prefab de la medalla
+    public float DistanciaPatrullaje = 5.0f; // Distancia total que recorre enemigoJ
+    public int Health = 3; // Vida del enemigoJ
+    public GameObject MedallaPrefab; // Prefab de la medallita
 
-    private Vector3 puntoInicial; // Posición inicial del enemigo
-    private Vector3 destinoActual; // Destino actual del enemigo
+    private Vector3 puntoInicial; // Posición inicial de enemigoJ
+    private Vector3 destinoActual; // Destino actual de enemigoJ
     private bool disparando = false; // Si está disparando
     private float LastShoot; // Última vez que disparó
-    private GameObject Jonh; // Jugador a seguir
+    private GameObject Jonh; // Jugador que sigue
 
     private void Start()
     {

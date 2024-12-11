@@ -7,23 +7,23 @@ using UnityEngine.UI;
 
 public class MovimientoJonh : MonoBehaviour
 {
-    public float JumpForce; // Fuerza del salto
-    public float Speed;     // Velocidad de movimiento
+    public float JumpForce; // Fuerza del salto del pj
+    public float Speed;     // Velocidad de movimiento del pj
     public GameObject BalaPrefab; // Prefab de bala
     public LayerMask sueloLayer; // Capa que define al suelo
     public Transform detectorSuelo; // Para detectar si esta tocando suelo
     public float radioDeteccion; // Radio para detectar si esta tocando el suelo
-    public TMP_Text textoVida; // Referencia al TextMeshPro para mostrar la vida
+    public TMP_Text textoVida; // Referencia al texto para mostrar la vida
 
     public AudioClip disparoSound; // Clip de sonido para el disparo
     private AudioSource audioSource; // Referencia al AudioSource
 
-    private Rigidbody2D rigidbody2; // Rigidbody del jugador
-    private Animator animator; // Animacion del jugador
-    private float Horizontal; // Movimiento horizontal del jugador
+    private Rigidbody2D rigidbody2; // Rigidbody del pj
+    private Animator animator; // Animacion del pj
+    private float Horizontal; // Movimiento horizontal del pj
     private bool Grounded; // Suelo
-    public int MaxVida = 5; // Vida máxima del jugador
-    private int Vida; // Vida actual del jugador
+    public int MaxVida = 5; // Vida máxima del pj
+    private int Vida; // Vida actual del pj
 
     void Start()
     {
@@ -40,10 +40,10 @@ public class MovimientoJonh : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        if (Horizontal < 0.0f) transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);  // Para girar al pj en la direccion que vaya
         else if (Horizontal > 0.0f) transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-        animator.SetBool("estaCorriendo", Horizontal != 0.0f);
+        animator.SetBool("estaCorriendo", Horizontal != 0.0f); // Activa la animacion de correr cuando el pj se mueve
 
         Grounded = Physics2D.OverlapCircle(detectorSuelo.position, radioDeteccion, sueloLayer);
 
@@ -67,10 +67,10 @@ public class MovimientoJonh : MonoBehaviour
     {
         Vector3 direccion;
         if (transform.localScale.x == 1.0f) direccion = Vector3.right;
-        else direccion = Vector3.left;
+        else direccion = Vector3.left; // La direccion del disparo depende donde mire el pj
         
         GameObject Bala = Instantiate(BalaPrefab, transform.position + direccion * 0.1f, Quaternion.identity);
-        Bala.GetComponent<Bala>().SetDirection(direccion);
+        Bala.GetComponent<Bala>().SetDirection(direccion); 
 
         
         if (disparoSound != null)
@@ -79,7 +79,7 @@ public class MovimientoJonh : MonoBehaviour
         }
     }
     
-    private void FixedUpdate()
+    private void FixedUpdate() // Para actualizar la velocidad del pj
     {
         rigidbody2.velocity = new Vector2(Horizontal * Speed, rigidbody2.velocity.y);
     }

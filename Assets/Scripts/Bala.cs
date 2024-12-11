@@ -19,7 +19,7 @@ public class Bala : MonoBehaviour
         Rigidbody2D.velocity = Direccion * Speed;
     }
 
-    public void SetDirection(Vector2 direccion)
+    public void SetDirection(Vector2 direccion) // Para que funcione la direccion en el script del pj
     {
         Direccion = direccion; 
     }

@@ -36,7 +36,7 @@ public class SpawnEnemigos : MonoBehaviour
 
     private void SpawnEnemigo()
     {
-        int index = Random.Range(0, PuntosSpawn.Length);  // Selecciona un punto de spawn aleatorio
+        int index = Random.Range(0, PuntosSpawn.Length);  // Selecciona un punto de spawn random
 
         Instantiate(EnemigoPrefab, PuntosSpawn[index].position, Quaternion.identity);
         

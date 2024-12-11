@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int MedallasParaGanar = 10; // Número de medallas necesarias para ganar
-    private int medallasRecolectadas = 0; // Contador de medallas actuales
+    public int MedallasParaGanar = 10; // Número de medallitas necesarias para ganar
+    private int medallasRecolectadas = 0; // Contador de medallitas actuales
 
-    public TMP_Text textoMedallas; // Para mostrar las medallas recolectadas
+    public TMP_Text textoMedallas; // Para mostrar las medallitas recolectadas
     public TMP_Text textoTiempo; // Para mostrar el tiempo restante
     
     public float tiempoMaximo = 120f; // Tiempo máximo del juego en segundos

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour
+public class MenuController : MonoBehaviour // Para las escenas
 {
     public void Menu()
     {
@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
 
     public void Victoria()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);              
     }
 
     public void Derrota()

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemigoPerseguidor : MonoBehaviour
 {
-    public float Speed = 2.0f; // Velocidad de movimiento
+    public float Speed = 2.0f; // Velocidad de movimiento de enemigoP
     public int Health = 3;    // Vida del enemigo
     public GameObject BalaPrefab; // Prefab de bala
-    public GameObject MedallitaPrefab; // Prefab de la medalla
+    public GameObject MedallitaPrefab; // Prefab de la medallita
     
-    private GameObject Jonh; // Jugador a seguir
+    private GameObject Jonh; // Jugador que sigue 
     
     private void Start()
     {
